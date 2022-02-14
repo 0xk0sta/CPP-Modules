@@ -1,31 +1,29 @@
 NAME = megaphone
 
-CC = c++
-CFLAGS = -Wall -Wextra -Werror
+CC		= 		c++
+CFLAGS	= 		-Wall -Wextra -Werror -std=c++98
 
-SRCD = srcs
+//SRCD	=		srcs
 
-SRC=	main.c 				\
+SRC		=		megaphone.cpp 				\
 
-OBJ=$(SRC:%.c=%.o)
+OBJ		= 		$(SRC:%.cpp=%.o)
 
-SRCS=$(addprefix srcs/, $(SRC))
-OBJS=$(addprefix srcs/, $(OBJ))
+#SRCS	= 		$(addprefix srcs/, $(SRC))
 
-all: $(NAME)
+all:			$(NAME)
 
-$(NAME): $(OBJS)
-	$(CC) $^ -o $@ $(CFLAGS) $(LDFLAGS) $(CCFLAGS)
+$(NAME):		$(OBJ)
+				$(CC) $(CFLAGS) $^ -o $@
 
-$(OBJD)/%.o: $(SRCD)/%.c
-	$(CC) $(CFLAGS) -c $< -o $@
+$(OBJ):			$(SRC)
+				$(CC) $(CFLAGS) -c $^ -o $@
 
 clean:
-	rm -rf $(SRCD)/*.o
-	rm -rf $(NAME)
+				rm -rf $(OBJ)
 
-fclean: clean
-	rm -rf $(NAME)
+fclean: 		clean
+				rm -rf $(NAME)
 
 re: fclean all
 

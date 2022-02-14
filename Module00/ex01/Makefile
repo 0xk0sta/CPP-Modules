@@ -1,9 +1,9 @@
-NAME = megaphone
+NAME	=		phoneBook
 
 CC		= 		c++
 CFLAGS	= 		-Wall -Wextra -Werror -std=c++98
 
-SRC		=		megaphone.cpp 				\
+SRC		=		phoneBook.cpp 				\
 
 OBJ		= 		$(SRC:%.cpp=%.o)
 
