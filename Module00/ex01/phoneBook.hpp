@@ -41,7 +41,7 @@ void phoneBook::search(void)
 	for (int j = 0; j < 8; ++j) {
 		if (phoneBook::contact[j].fName.empty())
 			break ;
-		std::cout << std::right << "Index: " << j + 1 << " | ";
+		std::cout << std::right << "Index: " << std::setw(10) << j + 1 << " | ";
 		if (phoneBook::contact[j].fName.length() >= 10) {
 			std::cout << std::right << "First Name: " << std::setw(10)
 					  << phoneBook::contact[j].fName.substr(0, 9) << "."
@@ -82,7 +82,7 @@ void phoneBook::search(void)
 	}
 	if (phoneBook::contact[i - 1].fName.empty()) {
 		std::cout << "Selected contact is empty" << std::endl;
-		search();
+		return ;
 	}
 	else {
 		std::cout << "First name: " << phoneBook::contact[i - 1].fName << std::endl;

@@ -25,7 +25,12 @@ int main(void)
 				if (pb.contact[index].add() == 0)
 					index++;
 		}
-		else
+		else if (std::cin.eof()) {
+			std::cout << "Bye! Clearing phonebook..." << std::endl;
+			break ;
+		}
+		else {
 			continue;
+		}
 	}
 }
