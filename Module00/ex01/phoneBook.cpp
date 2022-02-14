@@ -8,18 +8,22 @@ int main(void)
 
 	while (1)
 	{
-		std::cin >> s;
-		if (s.compare("EXIT\0") == 0) {
+		std::getline(std::cin, s);
+		if (s == "EXIT\0") {
 			exit(0);
 		}
-		else if (s.compare("SEARCH\0") == 0) {
+		else if (s == "SEARCH\0") {
+			if (index == 0) {
+				std::cout << "Phone book is empty" << std::endl;
+				continue ;
+			}
 			pb.search();
 		}
-		else if (s.compare("ADD\0") == 0) {
+		else if (s == "ADD\0") {
 				if (index == 8)
 					index = 0;
-				pb.contact[index].add();
-				index++;
+				if (pb.contact[index].add() == 0)
+					index++;
 		}
 		else
 			continue;

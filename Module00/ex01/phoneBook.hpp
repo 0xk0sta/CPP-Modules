@@ -13,7 +13,7 @@ class contact {
 		std::string fName;
 		std::string sName;
 		std::string nickName;
-		void		add(void);
+		int			add(void);
 		void 		getDarkestSecret(void);
 		void		getPhoneNumber(void);
 };
@@ -40,16 +40,39 @@ void phoneBook::search(void)
 	size_t		i;
 
 	for (int j = 0; j < 8; ++j) {
-		if (j == 0 && phoneBook::contact[j].isEmpty == true) {
-			std::cout << "Phonebook is empty" << std::endl;
-		}
+		if (phoneBook::contact[j].fName.empty())
+			break ;
 		std::cout << std::right << "Index: " << j + 1 << " | ";
-		std::cout << std::right << "First Name: " << std::setw(10) << phoneBook::contact[j].fName << " | ";
-		std::cout << std::right << "Last Name: " << std::setw(10) << phoneBook::contact[j].sName << " | ";
-		std::cout << std::right << "Nickname: " << std::setw(10) << phoneBook::contact[j].nickName << std::endl;
+		if (phoneBook::contact[j].fName.length() >= 10) {
+			std::cout << std::right << "First Name: " << std::setw(10)
+					  << phoneBook::contact[j].fName.substr(0, 9) << "."
+					  << " | ";
+		}
+		else {
+			std::cout << std::right << "First Name: " << std::setw(10)
+					  << phoneBook::contact[j].fName << " | ";
+		}
+		if (phoneBook::contact[j].sName.length() >= 10) {
+			std::cout << std::right << "Last Name: " << std::setw(10)
+					  << phoneBook::contact[j].sName.substr(0, 9) << "."
+					  << " | ";
+		}
+		else {
+			std::cout << std::right << "Last Name: " << std::setw(10)
+					  << phoneBook::contact[j].sName << " | ";
+		}
+		if (phoneBook::contact[j].nickName.length() >= 10) {
+			std::cout << std::right << "Nickname: " << std::setw(10)
+					  << phoneBook::contact[j].nickName.substr(0, 9) << "."
+					  << std::endl;
+		}
+		else {
+			std::cout << std::right << "Nickname: " << std::setw(10)
+					  << phoneBook::contact[j].nickName << std::endl;
+		}
 	}
 	std::cout << "Contact Index => ";
-	std::cin >> input;
+	std::getline(std::cin, input);
 	if (input == "EXIT\0") {
 		exit(0);
 	}
@@ -73,19 +96,27 @@ void phoneBook::search(void)
 	}
 }
 
-void contact::add(void)
+int contact::add(void)
 {
+	std::string aux;
+
 	std::cout << "First Name => ";
-	std::cin >> contact::fName;
+	std::getline(std::cin, aux);
+	if (aux.length() == 0) {
+		std::cout << "Error: cannot store a empty contact" << std::endl;
+		return (1);
+	}
+	contact::fName = aux;
 	std::cout << "Last Name => ";
-	std::cin >> contact::sName;
+	std::getline(std::cin, contact::sName);
 	std::cout << "Nickname => ";
-	std::cin >> contact::nickName;
+	std::getline(std::cin, contact::nickName);
 	std::cout << "Phone Number => ";
-	std::cin >> contact::phoneNumber;
+	std::getline(std::cin, contact::phoneNumber);
 	std::cout << "Darkest Secret => ";
-	std::cin >> contact::darkestSecret;
+	std::getline(std::cin, contact::darkestSecret);
 	contact::isEmpty = false;
+	return (0);
 }
 
 #endif
