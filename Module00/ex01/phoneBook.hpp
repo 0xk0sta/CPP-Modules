@@ -9,7 +9,6 @@ class contact {
 		std::string darkestSecret;
 		std::string phoneNumber;
 	public:
-		bool 		isEmpty;
 		std::string fName;
 		std::string sName;
 		std::string nickName;
@@ -81,7 +80,7 @@ void phoneBook::search(void)
 		std::cout << "Invalid index, max index = 8" << std::endl;
 		return ;
 	}
-	if (phoneBook::contact[i - 1].isEmpty == true) {
+	if (phoneBook::contact[i - 1].fName.empty()) {
 		std::cout << "Selected contact is empty" << std::endl;
 		search();
 	}
@@ -115,7 +114,6 @@ int contact::add(void)
 	std::getline(std::cin, contact::phoneNumber);
 	std::cout << "Darkest Secret => ";
 	std::getline(std::cin, contact::darkestSecret);
-	contact::isEmpty = false;
 	return (0);
 }
 
