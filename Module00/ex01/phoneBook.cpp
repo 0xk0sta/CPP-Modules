@@ -22,7 +22,7 @@ int main(void)
 		else if (s == "ADD\0") {
 				if (index == 8)
 					index = 0;
-				if (pb.contact[index].add() == 0)
+				if (pb.kontact[index].add() == 0)
 					index++;
 		}
 		else if (std::cin.eof()) {

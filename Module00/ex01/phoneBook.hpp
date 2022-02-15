@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <iomanip>
+#include <cstdlib>
 
 class contact {
 	private:
@@ -19,7 +20,7 @@ class contact {
 
 class phoneBook {
 	public:
-		contact contact[8];
+		contact kontact[8];
 		void	search(void);
 };
 
@@ -39,35 +40,35 @@ void phoneBook::search(void)
 	size_t		i;
 
 	for (int j = 0; j < 8; ++j) {
-		if (phoneBook::contact[j].fName.empty())
+		if (phoneBook::kontact[j].fName.empty())
 			break ;
 		std::cout << std::right << "Index: " << std::setw(10) << j + 1 << " | ";
-		if (phoneBook::contact[j].fName.length() >= 10) {
+		if (phoneBook::kontact[j].fName.length() >= 10) {
 			std::cout << std::right << "First Name: " << std::setw(10)
-					  << phoneBook::contact[j].fName.substr(0, 9) << "."
+					  << phoneBook::kontact[j].fName.substr(0, 9) << "."
 					  << " | ";
 		}
 		else {
 			std::cout << std::right << "First Name: " << std::setw(10)
-					  << phoneBook::contact[j].fName << " | ";
+					  << phoneBook::kontact[j].fName << " | ";
 		}
-		if (phoneBook::contact[j].sName.length() >= 10) {
+		if (phoneBook::kontact[j].sName.length() >= 10) {
 			std::cout << std::right << "Last Name: " << std::setw(10)
-					  << phoneBook::contact[j].sName.substr(0, 9) << "."
+					  << phoneBook::kontact[j].sName.substr(0, 9) << "."
 					  << " | ";
 		}
 		else {
 			std::cout << std::right << "Last Name: " << std::setw(10)
-					  << phoneBook::contact[j].sName << " | ";
+					  << phoneBook::kontact[j].sName << " | ";
 		}
-		if (phoneBook::contact[j].nickName.length() >= 10) {
+		if (phoneBook::kontact[j].nickName.length() >= 10) {
 			std::cout << std::right << "Nickname: " << std::setw(10)
-					  << phoneBook::contact[j].nickName.substr(0, 9) << "."
+					  << phoneBook::kontact[j].nickName.substr(0, 9) << "."
 					  << std::endl;
 		}
 		else {
 			std::cout << std::right << "Nickname: " << std::setw(10)
-					  << phoneBook::contact[j].nickName << std::endl;
+					  << phoneBook::kontact[j].nickName << std::endl;
 		}
 	}
 	std::cout << "Contact Index => ";
@@ -80,18 +81,18 @@ void phoneBook::search(void)
 		std::cout << "Invalid index, max index = 8" << std::endl;
 		return ;
 	}
-	if (phoneBook::contact[i - 1].fName.empty()) {
+	if (phoneBook::kontact[i - 1].fName.empty()) {
 		std::cout << "Selected contact is empty" << std::endl;
 		return ;
 	}
 	else {
-		std::cout << "First name: " << phoneBook::contact[i - 1].fName << std::endl;
-		std::cout << "Last name: " << phoneBook::contact[i - 1].sName << std::endl;
-		std::cout << "Nickname: " << phoneBook::contact[i - 1].nickName << std::endl;
+		std::cout << "First name: " << phoneBook::kontact[i - 1].fName << std::endl;
+		std::cout << "Last name: " << phoneBook::kontact[i - 1].sName << std::endl;
+		std::cout << "Nickname: " << phoneBook::kontact[i - 1].nickName << std::endl;
 		std::cout << "Phone number: ";
-		phoneBook::contact[i - 1].getPhoneNumber();
+		phoneBook::kontact[i - 1].getPhoneNumber();
 		std::cout << "Darkest secret: ";
-		phoneBook::contact[i - 1].getDarkestSecret();
+		phoneBook::kontact[i - 1].getDarkestSecret();
 	}
 }
 
