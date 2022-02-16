@@ -1,6 +1,6 @@
 #include "Account.hpp"
 #include <iostream>
-//#include <chrono>
+#include <ctime>
 #include <iomanip>
 
 int Account::_nbAccounts = 0;
@@ -9,6 +9,7 @@ int Account::_totalNbWithdrawals = 0;
 int Account::_totalAmount = 0;
 
 Account::Account(int initial_deposit) {
+	_displayTimestamp();
 	this->_accountIndex = this->_nbAccounts++;
 	this->_amount = initial_deposit;
 	Account::_totalAmount += initial_deposit;
@@ -20,6 +21,7 @@ Account::Account(int initial_deposit) {
 }
 
 Account::Account() {
+	_displayTimestamp();
 	this->_accountIndex = this->_nbAccounts++;
 	this->_amount = 0;
 	this->_nbDeposits = 0;
@@ -31,7 +33,7 @@ Account::Account() {
 }
 
 Account::~Account() {
-	//TODO Print timestamp
+	_displayTimestamp();
 	this->_nbAccounts--;
 	std::cout << "index:" << this->_accountIndex << ";";
 	std::cout << "amount:" << this->_amount << ";" << "closed" << std::endl;
@@ -54,7 +56,7 @@ int Account::getNbWithdrawals() {
 }
 
 void Account::displayAccountsInfos() {
-	//TIMESTAMP
+	_displayTimestamp();
 	std::cout << "accounts:" << Account::_nbAccounts << ";";
 	std::cout << "total:" << Account::_totalAmount << ";";
 	std::cout << "deposits:" << Account::_totalNbDeposits << ";";
@@ -62,6 +64,7 @@ void Account::displayAccountsInfos() {
 }
 
 bool Account::makeWithdrawal(int withdrawal) {
+	_displayTimestamp();
 	//timestamp
 	std::cout << "index:" << this->_accountIndex << ";";
 	std::cout << "p_amount:" << this->_amount << ";";
@@ -83,6 +86,7 @@ bool Account::makeWithdrawal(int withdrawal) {
 }
 
 void Account::makeDeposit(int deposit) {
+	_displayTimestamp();
 	//TIMESTAMP
 	std::cout << "index:" << this->_accountIndex << ";";
 	std::cout << "p_amount:" << this->_amount << ";";
@@ -100,21 +104,17 @@ int Account::checkAmount() const {
 }
 
 void Account::displayStatus() const {
+	_displayTimestamp();
 	std::cout << "index:" << this->_accountIndex << ";";
 	std::cout << "amount:" << this->_amount << ";";
 	std::cout << "deposits:" << this->_nbDeposits << ";";
 	std::cout << "withdrawals:" << this->_nbWithdrawals << ";" << std::endl;
 }
 
-/*void Account::_displayTimestamp() {
-	std::chrono::time_point<std::chrono::system_clock> now = std::chrono::system_clock::now();
-	std::time_t time_now = std::chrono::system_clock::to_time_t(now);
-
-	tm time = *localtime(&time_now);
-	std::cout << std::setfill('0') << "[" << (time.tm_year + 1900)
-			  << std::setw(2) << time_tm.tm_mon
-			  << std::setw(2) << time_tm.tm_mday << "_"
-			  << std::setw(2) << time_tm.tm_hour
-			  << std::setw(2) << time_tm.tm_min
-			  << std::setw(2) << time_tm.tm_sec << "] ";
-}*/
+void Account::_displayTimestamp() {
+	time_t tmp;
+	time(&tmp);
+	struct tm *time_formatted;
+	time_formatted = gmtime(&tmp);
+	std::cout << "[" << std::setfill('0') << time_formatted->tm_year + 1900 << time_formatted->tm_mon << time_formatted->tm_mday << "_" << time_formatted->tm_hour << time_formatted->tm_min << time_formatted->tm_sec << "]";
+}

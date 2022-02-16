@@ -1,26 +1,20 @@
-NAME	=		phoneBook
+NAME = account
 
-CC		= 		c++
-CFLAGS	= 		-Wall -Wextra -Werror -std=c++98
+SRCS = tests.cpp Account.cpp
 
-SRC		=		phoneBook.cpp 				\
+CC = clang++
+CFLAGS = -Wall -Wextra -Werror -std=c++98
 
-OBJ		= 		$(SRC:%.cpp=%.o)
+all: $(NAME)
 
-all:			$(NAME)
-
-$(NAME):		$(OBJ)
-				$(CC) $(CFLAGS) $^ -o $@
-
-$(OBJ):			$(SRC)
-				$(CC) $(CFLAGS) -c $^ -o $@
+$(NAME): $(SRCS)
+	@$(CC) $(CFLAGS) -o $@ $^
 
 clean:
-				rm -rf $(OBJ)
 
-fclean: 		clean
-				rm -rf $(NAME)
+fclean: clean
+	rm -rf $(NAME)
 
 re: fclean all
 
-.PHONY: all re clean fclean
+.PHONY: all clean fclean re
