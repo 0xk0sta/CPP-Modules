@@ -100,21 +100,35 @@ int contact::add(void)
 {
 	std::string aux;
 
+	if (std::cin.eof())
+		return (2);
 	std::cout << "First Name => ";
 	std::getline(std::cin, aux);
-	if (aux.length() == 0) {
+	if (std::cin.eof())
+		return (2);
+	if (aux.length() == 0 && !std::cin.eof()) {
 		std::cout << "Error: cannot store a empty contact" << std::endl;
 		return (1);
 	}
+	if (std::cin.eof())
+		return (2);
 	contact::fName = aux;
 	std::cout << "Last Name => ";
 	std::getline(std::cin, contact::sName);
+	if (std::cin.eof())
+		return (2);
 	std::cout << "Nickname => ";
 	std::getline(std::cin, contact::nickName);
+	if (std::cin.eof())
+		return (2);
 	std::cout << "Phone Number => ";
 	std::getline(std::cin, contact::phoneNumber);
+	if (std::cin.eof())
+		return (2);
 	std::cout << "Darkest Secret => ";
 	std::getline(std::cin, contact::darkestSecret);
+	if (std::cin.eof())
+		return (2);
 	return (0);
 }
 

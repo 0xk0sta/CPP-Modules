@@ -22,8 +22,13 @@ int main(void)
 		else if (s == "ADD\0") {
 				if (index == 8)
 					index = 0;
-				if (pb.kontact[index].add() == 0)
+				if (pb.kontact[index].add() == 0) {
 					index++;
+				}
+				else if (pb.kontact[index].add() == 2) {
+					std::cout << std::endl <<"Bye! Clearing phonebook..." << std::endl;
+					break ;
+				}
 		}
 		else if (std::cin.eof()) {
 			std::cout << "Bye! Clearing phonebook..." << std::endl;
