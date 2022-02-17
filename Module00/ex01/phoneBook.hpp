@@ -73,6 +73,10 @@ void phoneBook::search(void)
 	}
 	std::cout << "Contact Index => ";
 	std::getline(std::cin, input);
+	if (std::cin.eof()) {
+		std::cout << std::endl <<"Bye! Clearing phonebook..." << std::endl;
+		exit (0);
+	}
 	if (input == "EXIT\0") {
 		exit(0);
 	}
