@@ -115,6 +115,11 @@ void Account::_displayTimestamp() {
 	time_t tmp;
 	time(&tmp);
 	struct tm *time_formatted;
-	time_formatted = gmtime(&tmp);
-	std::cout << "[" << std::setfill('0') << time_formatted->tm_year + 1900 << time_formatted->tm_mon << time_formatted->tm_mday << "_" << time_formatted->tm_hour << time_formatted->tm_min << time_formatted->tm_sec << "]";
+	time_formatted = localtime(&tmp);
+	std::cout << std::setfill('0') << '[' << time_formatted->tm_year + 1900
+		<< std::setw(2) << time_formatted->tm_mon + 1
+		<< std::setw(2) << time_formatted->tm_mday << "_"
+		<< std::setw(2) << time_formatted->tm_hour
+		<< std::setw(2) << time_formatted->tm_min
+		<< std::setw(2) << time_formatted->tm_sec << "]";
 }
