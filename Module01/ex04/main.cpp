@@ -14,19 +14,20 @@ int main (int argc, char **argv) {
 	std::string outFileName(argv[1]);
 	std::ofstream outfile;
 	outfile.open(outFileName.append(".replace").c_str(), std::ofstream::out | std::ofstream::trunc);
-	while (std::getline(in, line, '\n').good()) {
+	while (std::getline(in, line).good()) {
 		std::string out;
 		size_t aux = 0;
 		size_t index = 0;
 		while (true) {
-			index = line.find(std::string(argv[1]));
+			index = line.find(std::string(argv[2]), aux);
 			if (index == std::string::npos) break;
 			out.append(line, aux, index - aux);
-			out.append(argv[3]);
+			out.append(std::string(argv[3]));
 			aux = index + std::string(argv[2]).length();
 		}
-		out.append(line, index);
+		out.append(line, aux);
 		outfile << out;
+		outfile << "\n";
 	}
 	outfile.close();
 	in.close();
