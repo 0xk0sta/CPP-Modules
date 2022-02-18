@@ -1,9 +1,9 @@
-NAME	=		zombie
+NAME	=		thisIsBrainz
 
 CC		= 		c++
 CFLAGS	= 		-Wall -Wextra -Werror -std=c++98
 
-SRC		=		Zombie.cpp	newZombie.cpp randomChump.cpp main.cpp 				\
+SRC		=		main.cpp 				\
 
 OBJ		= 		$(SRC:%.cpp=%.o)
 
