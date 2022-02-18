@@ -5,5 +5,6 @@ int main (void) {
 	std::string *brainPTR = &brainz;
 	std::string &brainREF = brainz;
 
-	std::cout << brainz << " " << brainPTR << " " << brainREF << std::endl;
+	std::cout << brainz << "\n" << *brainPTR << "\n" << brainREF << std::endl;
+	std::cout << &brainz << "\n" << brainPTR << "\n" << &brainREF << std::endl;
 }

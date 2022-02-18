@@ -1,9 +1,9 @@
-NAME	=		zombie
+NAME	=		replace
 
 CC		= 		c++
-CFLAGS	= 		-Wall -Wextra -Werror -std=c++98
+CFLAGS	= 		-Wall -Wextra -Werror -std=c++98 -fsanitize=address
 
-SRC		=		Zombie.cpp	main.cpp 	ZombieHorde.cpp			\
+SRC		=		main.cpp
 
 OBJ		= 		$(SRC:%.cpp=%.o)
 
