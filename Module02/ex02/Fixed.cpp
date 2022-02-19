@@ -15,7 +15,7 @@ Fixed::Fixed(const Fixed &src) {
 }
 
 Fixed &Fixed::operator=(const Fixed &src) {
-	std::cout << "Asignation operator called" << std::endl;
+	std::cout << "Assignation operator called" << std::endl;
 	this->_fixed = src.getRawBits();
 	return *this;
 }
@@ -55,31 +55,31 @@ bool Fixed::operator>(const Fixed &src) const {
 }
 
 bool Fixed::operator<(const Fixed &src) const {
-	if (this > src)
+	if (*this > src)
 		return false;
 	return true;
 }
 
 bool Fixed::operator==(const Fixed &src) const {
-	if (this->_fixed == src._fixed)
+	if ((*this)._fixed == src._fixed)
 		return true;
 	return false;
 }
 
 bool Fixed::operator!=(const Fixed &src) const {
-	if (this == src)
+	if (*this == src)
 		return false;
 	return true;
 }
 
 bool Fixed::operator>=(const Fixed &src) const {
-	if (this > src || this == src)
+	if (*this > src || *this == src)
 		return true;
 	return false;
 }
 
 bool Fixed::operator<=(const Fixed &src) const {
-	if (this < src || this == src)
+	if (*this < src || *this == src)
 		return true;
 	return false;
 }
@@ -104,14 +104,26 @@ Fixed Fixed::operator/(const Fixed &src) const {
 	return ret;
 }
 
-Fixed Fixed::operator++() {
-	this->_fixed++;
-	return this;
+Fixed Fixed::operator++(int) {
+	Fixed out;
+	out._fixed = _fixed++;
+	return out;
 }
 
-Fixed Fixed::operator--() {
-	this->_fixed--;
-	return this;
+Fixed Fixed::operator--(int) {
+	Fixed out;
+	out._fixed = _fixed--;
+	return out;
+}
+
+Fixed &Fixed::operator++() {
+	++(this->_fixed);
+	return *this;
+}
+
+Fixed &Fixed::operator--() {
+	--(this->_fixed);
+	return *this;
 }
 
 const Fixed &Fixed::min(const Fixed &lhs, const Fixed &rhs) {

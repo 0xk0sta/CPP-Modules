@@ -11,7 +11,7 @@ public:
 	Fixed(Fixed const &src);
 	~Fixed(void);
 
-	Fixed&	operator=(Fixed const &src) const;
+	Fixed&	operator=(Fixed const &src);
 	bool	operator>(Fixed const &src) const;
 	bool	operator<(Fixed const &src) const;
 	bool	operator<=(Fixed const &src) const;
@@ -27,8 +27,8 @@ public:
 	Fixed&	operator++();
 	Fixed&	operator--();
 
-	Fixed	operator++();
-	Fixed	operator--();
+	Fixed	operator++(int);
+	Fixed	operator--(int);
 
 	static			Fixed&	max(Fixed &lhs, Fixed &rhs);
 	static			Fixed&	min(Fixed &lhs, Fixed &rhs);
