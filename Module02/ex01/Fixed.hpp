@@ -1,5 +1,5 @@
-#ifndef CPP_MODULES_FIXED_HPP
-#define CPP_MODULES_FIXED_HPP
+#ifndef FIXED_HPP
+#define FIXED_HPP
 
 #include <iostream>
 
@@ -21,5 +21,5 @@ private:
 };
 
 std::ostream& operator<<(std::ostream &s, Fixed const &c);
-#endif //CPP_MODULES_FIXED_HPP
+#endif
  
