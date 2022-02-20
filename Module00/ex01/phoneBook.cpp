@@ -1,14 +1,14 @@
 #include "phoneBook.hpp"
 
-void contact::getPhoneNumber(void)
-{
-	std::cout << contact::phoneNumber << std::endl;
-}
+std::string contact::getFName() {return this->fName;}
 
-void contact::getDarkestSecret(void)
-{
-	std::cout << contact::darkestSecret << std::endl;
-}
+std::string contact::getSName() {return this->sName;}
+
+std::string contact::getNickname() {return this->nickName;}
+
+std::string contact::getPhoneNumber() {return this->phoneNumber;}
+
+std::string contact::getDarkestSecret() {return this->darkestSecret;}
 
 void phoneBook::search(void)
 {
@@ -16,35 +16,35 @@ void phoneBook::search(void)
 	size_t		i;
 
 	for (int j = 0; j < 8; ++j) {
-		if (phoneBook::kontact[j].fName.empty())
+		if (phoneBook::kontact[j].getFName().empty())
 			break ;
 		std::cout << std::right << "Index: " << std::setw(10) << j + 1 << " | ";
-		if (phoneBook::kontact[j].fName.length() >= 10) {
+		if (phoneBook::kontact[j].getFName().length() >= 10) {
 			std::cout << std::right << "First Name: " << std::setw(10)
-					  << phoneBook::kontact[j].fName.substr(0, 9) << "."
+					  << phoneBook::kontact[j].getFName().substr(0, 9) << "."
 					  << " | ";
 		}
 		else {
 			std::cout << std::right << "First Name: " << std::setw(10)
-					  << phoneBook::kontact[j].fName << " | ";
+					  << phoneBook::kontact[j].getFName() << " | ";
 		}
-		if (phoneBook::kontact[j].sName.length() >= 10) {
+		if (phoneBook::kontact[j].getSName().length() >= 10) {
 			std::cout << std::right << "Last Name: " << std::setw(10)
-					  << phoneBook::kontact[j].sName.substr(0, 9) << "."
+					  << phoneBook::kontact[j].getSName().substr(0, 9) << "."
 					  << " | ";
 		}
 		else {
 			std::cout << std::right << "Last Name: " << std::setw(10)
-					  << phoneBook::kontact[j].sName << " | ";
+					  << phoneBook::kontact[j].getSName() << " | ";
 		}
-		if (phoneBook::kontact[j].nickName.length() >= 10) {
+		if (phoneBook::kontact[j].getNickname().length() >= 10) {
 			std::cout << std::right << "Nickname: " << std::setw(10)
-					  << phoneBook::kontact[j].nickName.substr(0, 9) << "."
+					  << phoneBook::kontact[j].getNickname().substr(0, 9) << "."
 					  << std::endl;
 		}
 		else {
 			std::cout << std::right << "Nickname: " << std::setw(10)
-					  << phoneBook::kontact[j].nickName << std::endl;
+					  << phoneBook::kontact[j].getNickname() << std::endl;
 		}
 	}
 	std::cout << "Contact Index => ";
@@ -68,18 +68,16 @@ void phoneBook::search(void)
 		std::cout << "Invalid index, max index = 8" << std::endl;
 		return ;
 	}
-	if (phoneBook::kontact[i - 1].fName.empty()) {
+	if (phoneBook::kontact[i - 1].getFName().empty()) {
 		std::cout << "Selected contact is empty" << std::endl;
 		return ;
 	}
 	else {
-		std::cout << "First name: " << phoneBook::kontact[i - 1].fName << std::endl;
-		std::cout << "Last name: " << phoneBook::kontact[i - 1].sName << std::endl;
-		std::cout << "Nickname: " << phoneBook::kontact[i - 1].nickName << std::endl;
-		std::cout << "Phone number: ";
-		phoneBook::kontact[i - 1].getPhoneNumber();
-		std::cout << "Darkest secret: ";
-		phoneBook::kontact[i - 1].getDarkestSecret();
+		std::cout << "First name: " << phoneBook::kontact[i - 1].getFName() << std::endl;
+		std::cout << "Last name: " << phoneBook::kontact[i - 1].getSName() << std::endl;
+		std::cout << "Nickname: " << phoneBook::kontact[i - 1].getNickname() << std::endl;
+		std::cout << "Phone number: " << phoneBook::kontact[i - 1].getPhoneNumber() << std::endl;
+		std::cout << "Darkest secret: " << phoneBook::kontact[i - 1].getDarkestSecret() << std::endl;
 	}
 }
 

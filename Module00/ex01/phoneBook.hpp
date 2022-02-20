@@ -9,13 +9,16 @@ class contact {
 	private:
 		std::string darkestSecret;
 		std::string phoneNumber;
-	public:
 		std::string fName;
 		std::string sName;
 		std::string nickName;
-		int			add(void);
-		void 		getDarkestSecret(void);
-		void		getPhoneNumber(void);
+public:
+		int					add(void);
+		std::string			getDarkestSecret(void);
+		std::string			getPhoneNumber(void);
+		std::string			getFName(void);
+		std::string 		getSName(void);
+		std::string 		getNickname(void);
 };
 
 class phoneBook {
