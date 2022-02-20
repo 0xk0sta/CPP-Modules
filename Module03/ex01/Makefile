@@ -1,9 +1,9 @@
-NAME	=		megaphone
+NAME	=		zombie
 
 CC		= 		c++
 CFLAGS	= 		-Wall -Wextra -Werror -std=c++98 -MD
 
-SRC		=		megaphone.cpp				\
+SRC		=		Point.cpp	Fixed.cpp	main.cpp bsp.cpp				\
 
 OBJ		= 		$(SRC:%.cpp=%.o)
 

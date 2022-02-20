@@ -121,5 +121,5 @@ void Account::_displayTimestamp() {
 		<< std::setw(2) << time_formatted->tm_mday << "_"
 		<< std::setw(2) << time_formatted->tm_hour
 		<< std::setw(2) << time_formatted->tm_min
-		<< std::setw(2) << time_formatted->tm_sec << "]";
+		<< std::setw(2) << time_formatted->tm_sec << "] ";
 }

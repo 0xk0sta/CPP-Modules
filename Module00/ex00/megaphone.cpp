@@ -23,5 +23,6 @@ int main(int ac, char **av)
 				std::cout << (char)std::toupper(str[j]);
 			}
 		}
+		std::cout << std::endl;
 	}
 }
