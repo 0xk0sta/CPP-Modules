@@ -1,6 +1,6 @@
 #ifndef CLAPTRAP_HPP
 #define CLAPTRAP_HPP
-
+#include <iostream>
 
 class ClapTrap {
 	public:
@@ -11,9 +11,9 @@ class ClapTrap {
 		void	attack(std::string const &target);
 		void	takeDamage(unsigned int amount);
 		void	beRepaired(unsigned int amount);
-		unsigned int getHitPoints();
-		unsigned int getEnergyPoints();
-		unsigned int getAttackDamage();
+		unsigned int getHitPoints() const;
+		unsigned int getEnergyPoints() const;
+		unsigned int getAttackDamage() const;
 	private:
 		ClapTrap(void);
 		std::string	const	_name;
@@ -21,8 +21,5 @@ class ClapTrap {
 		unsigned int 		_energyPoints;
 		unsigned int 		_attackDamage;
 };
-
-std::ostream &operator<<(std::ostream &s, ClapTrap const &c);
-
 
 #endif

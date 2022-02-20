@@ -1,25 +1,18 @@
-//
-// Created by Antonio Costal cardenas on 20/02/2022.
-//
+#ifndef SCAVTRAP_HPP
+#define SCAVTRAP_HPP
+#include "ClapTrap.hpp"
+#include <iostream>
 
-#ifndef CPP_MODULES_SCAVTRAP_HPP
-#define CPP_MODULES_SCAVTRAP_HPP
+class ScavTrap : public ClapTrap {
+	public:
+		ScavTrap(std::string const name);
+		ScavTrap(ScavTrap const &src);
+		~ScavTrap(void);
+		ScavTrap &operator=(ScavTrap const &src);
+		void	guardGate();
+	private:
+		ScavTrap(void);
 
-
-
-class ScavTrap {
-public:
-	ScavTrap(void);
-	ScavTrap(ScavTrap const &src);
-	~ScavTrap(void);
-	ScavTrap& operator=(ScavTrap const &src);
-	int		getRawBits(void) const;
-private:
-	int					_ScavTrap;
 };
 
-std::ostream& operator<<(std::ostream &s, ScavTrap const &c);
-
-
-
-#endif //CPP_MODULES_SCAVTRAP_HPP
+#endif

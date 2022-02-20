@@ -1,9 +1,6 @@
-#include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
 
 int main(void) {
-	ClapTrap paco("paco");
-	paco.attack("jones");
-	paco.takeDamage(9);
-	paco.beRepaired(4);
-	paco.takeDamage(5);
+	ScavTrap paco("paco");
+	paco.guardGate();
 }

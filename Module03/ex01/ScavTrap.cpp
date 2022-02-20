@@ -1,29 +1,28 @@
-//
-// Created by Antonio Costal cardenas on 20/02/2022.
-//
-
 #include "ScavTrap.hpp"
 
-ScavTrap::ScavTrap() : _ScavTrap(0) {
-	std::cout << "Default constructor called" << std::endl;
+ScavTrap::ScavTrap(std::string const name) : ClapTrap(name) {
+	this->_hitPoints = 100;
+	this->_energyPoints = 50;
+	this->_attackDamage = 20;
+	std::cout << "ScavTrap parametrized constructor called" << std::endl;
 }
 
+ScavTrap::ScavTrap() {}
+
 ScavTrap::~ScavTrap() {
-	std::cout << "Destructor called" << std::endl;
+	std::cout << "ScavTrap-> Destructor called" << std::endl;
 }
 
 ScavTrap::ScavTrap(const ScavTrap &src) {
-	std::cout << "Copy constructor called" << std::endl;
+	std::cout << "ScavTrap -> Copy constructor called" << std::endl;
 	*this = src;
 }
 
-ScavTrap &ScavTrap::operator=(const ScavTrap &src) {
+ScavTrap &ScavTrap::operator=(const ScavTrap &) {
 	std::cout << "Asignation operator called" << std::endl;
-	this->_ScavTrap = src.getRawBits();
 	return *this;
 }
 
-int ScavTrap::getRawBits() const {
-	std::cout << "getRawBits member function called" << std::endl;
-	return this->_ScavTrap;
+void ScavTrap::guardGate() {
+	std::cout << this->_name << " has entered gate keeper mode" << std::endl;
 }
