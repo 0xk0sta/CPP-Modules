@@ -12,7 +12,7 @@ class Animal {
 		virtual void	makeSound(void) const;
 
 	protected:
-		std::string	_type;
+		std::string		_type;
 
 	private:
 		Animal(std::string const &type);
