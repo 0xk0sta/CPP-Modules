@@ -1,13 +1,13 @@
 #include "Form.hpp"
 
 Form::Form(const unsigned int signedGrade, const unsigned int execGrade,
-		   std::string const name) : _isSigned(false), _signedGrade(signedGrade), _execGrade(execGrade), _name(name) {
+		   std::string const name, std::string const target) : _isSigned(false), _signedGrade(signedGrade), _execGrade(execGrade), _name(name) , _tgt(target) {
 	if (this->_signedGrade < 1 || this->_execGrade < 1) throw Form::gradeTooHighException();
 	if (this->_execGrade > 150 || this->_execGrade > 150) throw Form::gradeTooLowException();
 	std::cout << "Parametrized constructor called" << std::endl;
 }
 
-Form::Form() : _isSigned(false), _signedGrade(150), _execGrade(150), _name("name") {}
+Form::Form() : _isSigned(false), _signedGrade(150), _execGrade(150), _name("name"), _tgt("target"){}
 
 Form::~Form() {
 	std::cout << "Form " << this->_name <<" Destructor called" << std::endl;
@@ -47,6 +47,8 @@ unsigned int Form::getExecGrade() const { return this->_execGrade; }
 unsigned int Form::getSignGrade() const { return this->_signedGrade; }
 
 const std::string &Form::getName() const { return this->_name; }
+
+const std::string &Form::getTarget() const { return this->_tgt; }
 
 bool Form::getIsSigned() const { return this->_isSigned; }
 

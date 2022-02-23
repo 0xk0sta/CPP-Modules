@@ -25,6 +25,15 @@ Bureaucrat &Bureaucrat::operator=(const Bureaucrat &src) {
 	return *this;
 }
 
+void Bureaucrat::executeForm(const Form &form) {
+	try {
+		Form.execute(*this);
+	}
+	catch (std::exception &e) {
+		std::cout << e.what() << std::endl;
+	}
+}
+
 unsigned int Bureaucrat::getGrade() const {return this->_grade;}
 
 std::string const &Bureaucrat::getName() const {return this->_name;}
