@@ -5,11 +5,11 @@
 class Karen {
 	public:
 		void complain(std::string level);
+	private:
 		typedef struct s_complains {
 			std::string name;
 			void (Karen::*f)();
 		} t_complains;
-	private:
 		void debug();
 		void warning();
 		void info();
