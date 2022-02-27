@@ -95,12 +95,12 @@ Fixed Fixed::operator-(const Fixed &src) const {
 }
 
 Fixed Fixed::operator*(const Fixed &src) const {
-	Fixed ret = Fixed(this->getRawBits() * src.getRawBits());
+	Fixed ret = Fixed(this->toFloat() * src.toFloat());
 	return ret;
 }
 
 Fixed Fixed::operator/(const Fixed &src) const {
-	Fixed ret = Fixed(this->getRawBits() / src.getRawBits());
+	Fixed ret = Fixed(this->toFloat() / src.toFloat());
 	return ret;
 }
 
