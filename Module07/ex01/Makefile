@@ -1,9 +1,10 @@
-NAME	=		scalarConversion
+NAME	=		iter
 
 CC		= 		c++
 CFLAGS	= 		-Wall -Wextra -Werror -std=c++98 -MD
 
-SRC		=		main.cpp	conversion.cpp
+SRC		=		main.cpp \
+				iter.hpp \
 
 OBJ		= 		$(SRC:%.cpp=%.o)
 
