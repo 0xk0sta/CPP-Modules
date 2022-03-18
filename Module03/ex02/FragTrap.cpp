@@ -24,5 +24,5 @@ FragTrap &FragTrap::operator=(const FragTrap &) {
 }
 
 void FragTrap::highFiveGuys() {
-	std::cout << this->_name << " issued " << rand() % 100 <<" high request(s)" << std::endl;
+	std::cout << this->_name << " issued " << rand() % 100 <<" high five request(s)" << std::endl;
 }
